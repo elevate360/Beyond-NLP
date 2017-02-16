@@ -1,0 +1,131 @@
+
+//Widget styling
+.widget {
+  float: left;
+  width: 100%;
+	margin: 0 0 1.5em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+
+//WordPress default widgets
+.widget_categories,
+.widget_archive,
+.widget_tag_cloud,
+.widget_pages{
+  
+  .widget-title{
+    margin-top: 25px;
+  }
+  
+  ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    
+    li{
+      display: block;
+      position: relative;
+      
+      a{
+        padding: 10px 10px 10px 50px;
+        display: block;
+        text-transform: uppercase;
+      }
+      
+      &:before{
+        content: '';
+        background-image: url('img/icon-arrow-right.png');
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        width: 25px;
+        height: 25px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: none;
+      }
+      
+      &:hover > a,
+      &:active > a{
+       
+      }
+      
+    }
+    
+    ul{
+      padding-left: 30px;
+    }
+    
+  }
+  
+  
+}
+
+
+//WordPress Tag Cloud Widget
+.widget_tag_cloud{
+  .tagcloud{
+    a{
+      font-size: 1rem!important;
+      border: dashed 2px $color__orange_dark;
+      color: $color__gray_regular;
+      margin: 10px 10px 0px 0px;
+      padding: 7px 14px;
+      display: inline-block;
+      
+      &:hover,
+      &:focus{
+        background-color: $color__gray_extra_light;
+        color: $color__white;
+        @include simple-transition;
+        border: solid 2px $color__gray_light;
+      }
+    }
+    
+  }
+}
+
+
+//Formidable forms widget (plugin)
+.widget_frm_show_form{
+  padding: 15px;
+  background: $color__green_dark;
+}
+
+
+//Custom menu widgets (footer or sidebar)
+.widget.widget_nav_menu{
+  
+  .widget-title{
+    font-size: 1.4rem;
+    margin-top: 25px;
+  }
+  .menu{
+    margin: 0px;
+    padding: 0px;
+    
+    li{
+      display:block;
+      
+      a{
+        padding: 5px 0px;
+      }
+      
+    }
+    ul{
+           
+    }
+    
+  }
+
+  
+  
+  
+}
+
+

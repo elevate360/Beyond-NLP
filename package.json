@@ -1,0 +1,19 @@
+{
+  "name": "beyond-nlp",
+  "version": "1.1.0",
+  "description": "A custom WordPress theme created by Simon Codrington at Elevate 360 for Beyond NLP. Built with Sass, Underscoes and awesome stuff",
+  "main": "index.php",
+  "keywords": [
+    "sass",
+    "Wordpress",
+    "theme",
+    "underscores",
+    "customizer"
+  ],
+  "author": "Simon Codrington",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

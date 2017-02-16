@@ -1,0 +1,11 @@
+body {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1.125);
+	line-height: $font__line-height-body;
+	font-weight: $font__weight-regular;
+}
+
+@import "headings";
+
+@import "copy";

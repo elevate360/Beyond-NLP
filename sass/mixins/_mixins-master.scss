@@ -1,0 +1,184 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+//Used to add box-shadows to elements, used on card layouts
+@mixin box-shadow(){
+  box-shadow: 0px 0px 60px -12px rgba(50,50,50, 0.35);
+}
+
+
+//Generic styling applied to buttons and certain form elements
+@mixin button-styling($type: 'primary'){
+  
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: $font__weight-semi-bold;
+  @include simple-transition;
+  border: 0px;
+
+  
+  //different styles of buttons
+  @if $type == 'primary'{
+    
+    background-color: $color__white;
+    color: $color__green_regular;
+    border: solid 2px $color__green_regular;
+    
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: transparent;
+    }
+
+  }
+  //secondary green button
+  @else if $type == 'secondary'{ 
+    
+    color: $color__white;
+    background-color: $color__green_regular;
+    border: solid 2px $color__green_dark;
+    
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: $color__green_dark;
+    }
+    
+  }
+  //featured orange button
+  @else if $type == 'featured'{
+    
+    background-color: $color__orange_regular;
+    color: $color__white;
+    border: solid 2px $color__orange_regular;
+    
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: $color__orange_dark;
+      border: solid 2px $color__orange_regular;
+    }
+    
+  }
+
+}
+//Mixin to determine sizing for buttons
+@mixin button-sizing( $size: 'regular'){
+    
+  //diffferent size buttons
+  @if($size == 'large'){
+    @include font-size(1.2);
+    padding: 25px 45px;
+    border-radius: 8px;
+  }
+  @else if $size == 'regular'{
+    @include font-size(1);
+    padding: 17px 32px;
+    border-radius: 5px;
+  }
+  @else if $size == 'small'{
+    
+    @include font-size(0.9);
+    padding: 12px 25px;
+    text-transform: none;
+    border-radius: 3px;
+    
+  }
+  
+  
+}
+
+
+
+//Applies a simple transition for all
+@mixin simple-transition(){
+  -webkit-transition: all 250ms ease-in;
+  -moz-transition: all 250ms ease-in;
+  -ms-transition: all 250ms ease-in;
+  transition: all 250ms ease-in;
+}
+
+/**
+ *   Applies the basic placeholder styles for form elements, cross browser
+ */
+@mixin input-placeholder-styles(){
+  &::-webkit-input-placeholder {
+      color: $color__gray_regular !important;
+  }
+  
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $color__gray_regular !important;
+  }
+  
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $color__gray_regular !important;
+  }
+  
+  &:-ms-input-placeholder {  
+     color: $color__gray_regular !important;
+  }
+  
+}
+
+//Responsive breakpoints map
+
+//outputs styles for a specific breakpoint
+@mixin breakpoint($breakpoint-name){
+  
+  //check if we have this key
+  @if map-has-key($breakpoint-map, $breakpoint-name){
+    //go through all breakpoints we have
+    @each $breakpoint-key, $breakpoint-value in $breakpoint-map{
+      
+      //display only for this size
+      @if $breakpoint-name == $breakpoint-key{
+         @media all and (min-width: map-get($breakpoint-value, 'min-width')){
+          //display content
+          @content;
+        }
+      }
+    }
+  }
+  
+}
+
+//Output styles that only work up to a set breakpoint (not including it)
+@mixin upto-breakpoint($breakpoint-name){
+  
+  //check if breakpoint exists
+  @if map-has-key($breakpoint-map, $breakpoint-name){
+    //go through all breakpoints
+    @each $breakpoint-key, $breakpoint-value in $breakpoint-map{
+      //execute only for our required breakpoint
+      @if $breakpoint-name == $breakpoint-key{
+        
+        @media all and (max-width: map-get($breakpoint-value, 'min-width')){
+          @content;
+        }
+      }
+    }
+  }
+  
+}

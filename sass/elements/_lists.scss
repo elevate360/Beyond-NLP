@@ -1,0 +1,48 @@
+ul, ol {
+	margin: 0%;
+	padding: 0px 0px 0px 35px;
+	
+	ul, ol{
+	  margin-left: 1.5em;
+	}
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+li{
+  margin-bottom: 20px;
+  list-style-type: none;
+  position: relative;
+  
+  &:before{
+    content: '';
+    position: absolute;
+    background-color: $color__green-regular;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    left: -27px;
+    top: 8px;
+    border-radius: 50%;
+  }
+}

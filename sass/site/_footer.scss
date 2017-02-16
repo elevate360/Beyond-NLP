@@ -1,0 +1,28 @@
+/*
+ * Footer Styling
+ */
+.site-footer{
+  
+  background-color: $color__gray_regular;
+  color: $color__white;
+  
+  .footer-widgets{
+    @include font-size(0.8);
+  }
+  
+  //widgets in the footer
+  .widget-title{
+    color: $color__white;
+    margin: 0px auto 15px auto !important;
+    font-size: 1.2rem!important;
+    
+  }
+  
+  .footer-attribution{
+    background-color: $color__gray_dark;
+    @include font-size(0.8);
+  }
+}
+
+
+

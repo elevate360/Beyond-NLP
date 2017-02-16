@@ -1,0 +1,44 @@
+.button,
+a.button{
+  
+  //without specifying, generate the generic button
+  @include button-styling; 
+  @include button-sizing;
+  
+  //primarey buttons (same as standard buttons)
+  &.primary-button{
+    @include button-styling('primary');
+  }
+  
+  //Secondary buttons
+  &.secondary-button{
+    @include button-styling('secondary');
+  }
+  
+  &.featured-button{
+    @include button-styling('featured');
+  }
+  
+  //different button sizes
+  &.small{
+    @include button-sizing('small');
+  }
+  &.regular{
+    @include button-sizing('medium');
+  }
+  &.large{
+    @include button-sizing('large');
+  }
+  
+}
+
+//groups of buttons
+.button-group{
+  
+  .button,
+  a.button{
+    margin-right: 25px;
+    margin-bottom: 15px;
+  }
+  
+}

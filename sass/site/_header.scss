@@ -1,0 +1,123 @@
+/*
+ * Header styling
+ */
+
+.site-header{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+  @include simple-transition;
+  background-color: rgba(51, 51, 51, 1);
+  
+  //on large, only the active menu (scrolling)should have colour
+  @include breakpoint("large"){
+    background-color: transparent;
+    
+    &.active{
+      background-color: rgba(51, 51, 51, 0.85);
+    }
+  }
+}
+
+.logo-wrap{
+ 
+  position: relative;
+  
+  img{
+   
+  }
+
+}
+
+//Hero banner section
+.header-banner{
+  position: relative;
+  padding-top: 50px;
+  
+  .background-image,
+  .overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .background-image{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+  }
+  .overlay{
+    opacity: 0.3;
+  }
+  .content{
+    position: relative;
+    
+    & > div{
+      position: relative;
+    }
+  }
+  .content .title,
+  .content .subtitle{
+    color: inherit;
+  }
+  .badge{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: calc(50% - 75px);
+    bottom: calc(0% - 75px);
+    
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    @include breakpoint("medium"){
+      right: 0px;
+      left: auto;
+      bottom: -50px;
+      width: 175px;
+      height: 175px;
+    }
+  }
+  
+  //large profiles
+  @include breakpoint("large"){
+    padding-top: 0px;
+  }
+  
+}
+
+//CTA hero section
+.header-hero{
+  
+  position:relative;
+  
+  .background-image,
+  .background-color{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .background-image{
+
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: auto 100%;
+   backtround-origin: content-box;
+   padding: 15px 0px;
+  }
+  .background-color{
+  
+  }
+  .content{
+
+    position: relative;
+  }
+}
+
+
